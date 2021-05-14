@@ -1,0 +1,28 @@
+buildscript {
+    apply from: 'gradle/versions.gradle'
+
+    repositories {
+        google()
+        jcenter()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$androidGradlePluginVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "de.mannodermaus.gradle.plugins:android-junit5:$androidJUnit5PluginVersion"
+        classpath "com.diffplug.spotless:spotless-plugin-gradle:$spotlessPluginVersion"
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion"
+        classpath "com.github.jakemarsden:git-hooks-gradle-plugin:$gitHooksPluginVersion"
+        classpath "com.adarshr:gradle-test-logger-plugin:$testLoggerPluginVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply from: 'gradle/githooks.gradle'
+apply from: 'gradle/spotless.gradle'
